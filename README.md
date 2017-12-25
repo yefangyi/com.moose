@@ -1,1 +1,1 @@
-# com.moose.core
+# com.moose
