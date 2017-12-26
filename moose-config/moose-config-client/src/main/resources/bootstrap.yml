@@ -1,0 +1,9 @@
+server:
+  port: 8881
+spring:
+  application:
+    name: moose
+  cloud:
+    config:
+      uri: http://localhost:8888
+      profile: master
