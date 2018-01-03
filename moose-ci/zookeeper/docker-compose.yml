@@ -34,4 +34,4 @@ services:
 networks:
   default:
     external:
-      name: ecall
+      name: moose
