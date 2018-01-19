@@ -8,7 +8,7 @@ services:
         environment:
           KAFKA_ADVERTISED_HOST_NAME: 172.16.42.208
           KAFKA_BROKER_ID: 1
-          KAFKA_ZOOKEEPER_CONNECT: zookeeper1:2181,zookeeper2:2181,zookeeper3:2181
+          KAFKA_ZOOKEEPER_CONNECT: zookeeper1:2181,zookeeper2:2181,zookeeper3:2181/kafka
         volumes:
           - /var/run/docker.sock:/var/run/docker.sock
 
@@ -20,7 +20,7 @@ services:
         environment:
           KAFKA_ADVERTISED_HOST_NAME: 172.16.42.208
           KAFKA_BROKER_ID: 2
-          KAFKA_ZOOKEEPER_CONNECT: zookeeper1:2181,zookeeper2:2181,zookeeper3:2181
+          KAFKA_ZOOKEEPER_CONNECT: zookeeper1:2181,zookeeper2:2181,zookeeper3:2181/kafka
         volumes:
           - /var/run/docker.sock:/var/run/docker.sock
 
@@ -32,7 +32,7 @@ services:
         environment:
           KAFKA_ADVERTISED_HOST_NAME: 172.16.42.208
           KAFKA_BROKER_ID: 3
-          KAFKA_ZOOKEEPER_CONNECT: zookeeper1:2181,zookeeper2:2181,zookeeper3:2181
+          KAFKA_ZOOKEEPER_CONNECT: zookeeper1:2181,zookeeper2:2181,zookeeper3:2181/kafka
         volumes:
           - /var/run/docker.sock:/var/run/docker.sock
 
