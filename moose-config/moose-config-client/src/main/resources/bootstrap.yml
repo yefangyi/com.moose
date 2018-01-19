@@ -6,4 +6,7 @@ spring:
   cloud:
     config:
       uri: http://localhost:8888
-      profile: master
+      profile: dev
+management:
+  security:
+    enabled: false
