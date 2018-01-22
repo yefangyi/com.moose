@@ -1,12 +1,11 @@
-server:
-  port: 8881
+server.port: 8881
 spring:
-  application:
-    name: moose
+  application.name: moose
   cloud:
     config:
       uri: http://localhost:8888
       profile: dev
-management:
-  security:
-    enabled: false
+    stream.kafka.binder:
+      brokers: localhost:9092,localhost:9093,localhost:9094
+      zkNodes: localhost:2181,localhost:2182,localhost:2183/kafka
+management.security.enabled: false

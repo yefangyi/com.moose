@@ -1,10 +1,14 @@
-server:
-  port: 8888
+server.port: 8888
 spring:
-  profiles:
-    active: native
   cloud:
     config:
       server:
-        native:
-          search-locations: classpath:/{application}/
+        git:
+          uri: https://gitee.com/yfyi/moose-config-resposity
+          searchPaths: moose-config
+          username: username
+          password: password
+    stream.kafka.binder:
+      brokers: localhost:9092,localhost:9093,localhost:9094
+      zkNodes: localhost:2181,localhost:2182,localhost:2183/kafka
+management.security.enabled: false
