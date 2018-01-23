@@ -1,0 +1,15 @@
+server.port: 8000
+spring.application.name: moose-eureka-server
+
+security:
+  basic.enabled: true
+  user:
+    name: eureka
+    password: eureka
+
+eureka:
+  instance.hostname: localhost
+  client:
+    register-with-eureka: false
+    fetch-registry: false
+    service-url.defaultZone: http://${security.user.name}:${security.user.password}@${eureka.instance.hostname}:${server.port}/eureka
