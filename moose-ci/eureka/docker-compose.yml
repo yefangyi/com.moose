@@ -10,7 +10,7 @@ services:
           SECURITY_USER_NAME: root
           SECURITY_USER_PASSWORD: root
           EUREKA_INSTANCE_HOSTNAME: eureka1
-          EUREKA_CLIENT_SERVICE_URL_DEFAULTZONE: http://root:root@eureka2:8000/eureka,http://root:root@eureka3:8000/eureka
+          EUREKA_CLIENT_SERVICE_URL_DEFAULTZONE: http://eureka2:8000/eureka,http://eureka3:8000/eureka
 
     eureka2:
         image: moose/eureka
@@ -22,7 +22,7 @@ services:
           SECURITY_USER_NAME: root
           SECURITY_USER_PASSWORD: root
           EUREKA_INSTANCE_HOSTNAME: eureka2
-          EUREKA_CLIENT_SERVICE_URL_DEFAULTZONE: http://root:root@eureka1:8000/eureka,http://root:root@eureka3:8000/eureka
+          EUREKA_CLIENT_SERVICE_URL_DEFAULTZONE: http://eureka1:8000/eureka,http://eureka3:8000/eureka
 
     eureka3:
         image: moose/eureka
@@ -34,7 +34,7 @@ services:
           SECURITY_USER_NAME: root
           SECURITY_USER_PASSWORD: root
           EUREKA_INSTANCE_HOSTNAME: eureka3
-          EUREKA_CLIENT_SERVICE_URL_DEFAULTZONE: http://root:root@eureka1:8000/eureka,http://root:root@eureka2:8000/eureka
+          EUREKA_CLIENT_SERVICE_URL_DEFAULTZONE: http://eureka1:8000/eureka,http://eureka2:8000/eureka
 
 networks:
   default:
