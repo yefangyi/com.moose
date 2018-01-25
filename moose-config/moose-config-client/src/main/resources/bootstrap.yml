@@ -3,9 +3,11 @@ spring:
   application.name: moose
   cloud:
     config:
-      uri: http://localhost:8888
       profile: dev
+      discovery.enabled: true
+      serviceId: moose-config-server
     stream.kafka.binder:
       brokers: localhost:9092,localhost:9093,localhost:9094
       zkNodes: localhost:2181,localhost:2182,localhost:2183/kafka
+eureka.client.serviceUrl.defaultZone: http://localhost:8001/eureka/,http://localhost:8002/eureka/,http://localhost:8003/eureka/
 management.security.enabled: false

@@ -1,0 +1,29 @@
+version: '3'
+services:
+    config1:
+        image: moose/config
+        build: .
+        container_name: config1
+        ports:
+          - 8888:8888
+        environment:
+          KAFKA_BROKERS: kafka1:9092,kafka2:9092,kafka3:9092
+          ZOOKEEPER_NODES: zookeeper1:2181,zookeeper2:2181,zookeeper3:2181/kafka
+          EUREKA_CLIENT_SERVICE_URL_DEFAULTZONE: http://eureka1:8000/eureka,http://eureka2:8000/eureka
+
+    config2:
+        image: moose/config
+        build: .
+        container_name: config2
+        ports:
+          - 8889:8888
+        environment:
+          KAFKA_BROKERS: kafka1:9092,kafka2:9092,kafka3:9092
+          ZOOKEEPER_NODES: zookeeper1:2181,zookeeper2:2181,zookeeper3:2181/kafka
+          EUREKA_CLIENT_SERVICE_URL_DEFAULTZONE: http://eureka1:8000/eureka,http://eureka2:8000/eureka
+
+
+networks:
+  default:
+    external:
+      name: moose

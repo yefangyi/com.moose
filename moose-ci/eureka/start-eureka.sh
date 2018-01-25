@@ -14,7 +14,7 @@ if [[ -z "$EUREKA_CLIENT_SERVICE_URL_DEFAULTZONE" ]]; then
     export EUREKA_CLIENT_SERVICE_URL_DEFAULTZONE=http://localhost:$SERVER_PORT/eureka
 fi
 
-if [ "$SECURITY_BASIC_ENABLED" ]; then
+if [ "$SECURITY_BASIC_ENABLED" == "true" ]; then
     java -Dsecurity.basic.enabled=$SECURITY_BASIC_ENABLED \
         -Dsecurity.user.name=$SECURITY_USER_NAME -Dsecurity.user.password=$SECURITY_USER_PASSWORD \
         -Deureka.instance.hostname=$EUREKA_INSTANCE_HOSTNAME \

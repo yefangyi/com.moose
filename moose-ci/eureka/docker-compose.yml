@@ -7,10 +7,9 @@ services:
         ports:
           - 8001:8000
         environment:
-          SECURITY_USER_NAME: root
-          SECURITY_USER_PASSWORD: root
+          SECURITY_BASIC_ENABLED: "false"
           EUREKA_INSTANCE_HOSTNAME: eureka1
-          EUREKA_CLIENT_SERVICE_URL_DEFAULTZONE: http://eureka2:8000/eureka,http://eureka3:8000/eureka
+          EUREKA_CLIENT_SERVICE_URL_DEFAULTZONE: http://eureka2:8000/eureka
 
     eureka2:
         image: moose/eureka
@@ -19,22 +18,9 @@ services:
         ports:
           - 8002:8000
         environment:
-          SECURITY_USER_NAME: root
-          SECURITY_USER_PASSWORD: root
+          SECURITY_BASIC_ENABLED: "false"
           EUREKA_INSTANCE_HOSTNAME: eureka2
-          EUREKA_CLIENT_SERVICE_URL_DEFAULTZONE: http://eureka1:8000/eureka,http://eureka3:8000/eureka
-
-    eureka3:
-        image: moose/eureka
-        build: .
-        container_name: eureka3
-        ports:
-          - 8003:8000
-        environment:
-          SECURITY_USER_NAME: root
-          SECURITY_USER_PASSWORD: root
-          EUREKA_INSTANCE_HOSTNAME: eureka3
-          EUREKA_CLIENT_SERVICE_URL_DEFAULTZONE: http://eureka1:8000/eureka,http://eureka2:8000/eureka
+          EUREKA_CLIENT_SERVICE_URL_DEFAULTZONE: http://eureka1:8000/eureka
 
 networks:
   default:
