@@ -11,8 +11,8 @@
     <modules>
         <module>moose-common</module>
         <module>moose-config</module>
-        <module>moose-websocket</module>
         <module>moose-eureka</module>
+        <module>moose-web</module>
     </modules>
 
     <properties>

@@ -1,0 +1,24 @@
+version: '3'
+services:
+    user-service1:
+        image: moose/user-service
+        build: .
+        container_name: user-service1
+        ports:
+          - 8070:8070
+        environment:
+          EUREKA_CLIENT_SERVICE_URL_DEFAULTZONE: http://eureka1:8000/eureka,http://eureka2:8000/eureka
+
+    user-service2:
+        image: moose/user-service
+        build: .
+        container_name: user-service2
+        ports:
+          - 8050:8070
+        environment:
+          EUREKA_CLIENT_SERVICE_URL_DEFAULTZONE: http://eureka1:8000/eureka,http://eureka2:8000/eureka
+
+networks:
+  default:
+    external:
+      name: moose

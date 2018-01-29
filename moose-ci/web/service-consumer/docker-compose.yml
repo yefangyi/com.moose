@@ -1,0 +1,15 @@
+version: '3'
+services:
+    service-consumer:
+        image: moose/service-consumer
+        build: .
+        container_name: service-consumer
+        ports:
+          - 8071:8080
+        environment:
+          EUREKA_CLIENT_SERVICE_URL_DEFAULTZONE: http://eureka1:8000/eureka,http://eureka2:8000/eureka
+
+networks:
+  default:
+    external:
+      name: moose
