@@ -1,0 +1,8 @@
+server.port: 8031
+spring.application.name: moose-zuul
+zuul.routes:
+  moose-service-consumer:
+    path: /consumer/*
+    url: http://localhost:8071/consumer/
+
+eureka.client.serviceUrl.defaultZone: http://localhost:8001/eureka/,http://localhost:8002/eureka/

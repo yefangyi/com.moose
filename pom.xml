@@ -13,6 +13,7 @@
         <module>moose-config</module>
         <module>moose-eureka</module>
         <module>moose-web</module>
+        <module>moose-zuul</module>
     </modules>
 
     <properties>
