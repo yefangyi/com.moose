@@ -7,10 +7,11 @@ services:
         ports:
           - 8001:8000
         environment:
-          SECURITY_BASIC_ENABLED: "false"
           EUREKA_INSTANCE_HOSTNAME: eureka1
           EUREKA_CLIENT_SERVICE_URL_DEFAULTZONE: http://eureka2:8000/eureka
           enable-git-eureka-server-url-update: "true"
+          EUREKA_CLIENT_REGISTER_WITH_EUREKA: "true"
+          EUREKA_CLIENT_FETCH_REGISTER: "true"
 
     eureka2:
         image: moose/eureka
@@ -19,10 +20,11 @@ services:
         ports:
           - 8002:8000
         environment:
-          SECURITY_BASIC_ENABLED: "false"
           EUREKA_INSTANCE_HOSTNAME: eureka2
           EUREKA_CLIENT_SERVICE_URL_DEFAULTZONE: http://eureka1:8000/eureka
           enable-git-eureka-server-url-update: "true"
+          EUREKA_CLIENT_REGISTER_WITH_EUREKA: "true"
+          EUREKA_CLIENT_FETCH_REGISTER: "true"
 
 networks:
   default:

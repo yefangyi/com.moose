@@ -7,6 +7,12 @@ if [[ -z "$SECURITY_BASIC_ENABLED" ]]; then
         export SECURITY_BASIC_ENABLED=true
     fi
 fi
+if [[ -z "$EUREKA_CLIENT_REGISTER_WITH_EUREKA" ]]; then
+    export EUREKA_CLIENT_REGISTER_WITH_EUREKA=false
+fi
+if [[ -z "$EUREKA_CLIENT_FETCH_REGISTER" ]]; then
+    export EUREKA_CLIENT_FETCH_REGISTER=false
+fi
 if [[ -z "$EUREKA_INSTANCE_HOSTNAME" ]]; then
     export EUREKA_INSTANCE_HOSTNAME=localhost
 fi
@@ -17,11 +23,15 @@ fi
 if [ "$SECURITY_BASIC_ENABLED" == "true" ]; then
     java -Dsecurity.basic.enabled=$SECURITY_BASIC_ENABLED \
         -Dsecurity.user.name=$SECURITY_USER_NAME -Dsecurity.user.password=$SECURITY_USER_PASSWORD \
+        -Deureka.client.register-with-eureka=$EUREKA_CLIENT_REGISTER_WITH_EUREKA \
+        -Deureka.client.fetch-registry=$EUREKA_CLIENT_FETCH_REGISTER \
         -Deureka.instance.hostname=$EUREKA_INSTANCE_HOSTNAME \
         -Deureka.client.service-url.defaultZone=$EUREKA_CLIENT_SERVICE_URL_DEFAULTZONE \
         -jar com.moose.eureka.server-1.0.0-SNAPSHOT.jar
 else
     java -Dsecurity.basic.enabled=$SECURITY_BASIC_ENABLED \
+        -Deureka.client.register-with-eureka=$EUREKA_CLIENT_REGISTER_WITH_EUREKA \
+        -Deureka.client.fetch-registry=$EUREKA_CLIENT_FETCH_REGISTER \
         -Deureka.instance.hostname=$EUREKA_INSTANCE_HOSTNAME \
         -Deureka.client.service-url.defaultZone=$EUREKA_CLIENT_SERVICE_URL_DEFAULTZONE \
         -jar com.moose.eureka.server-1.0.0-SNAPSHOT.jar
